@@ -6,7 +6,6 @@ metadata:
   name: timai-app-root
   namespace: default
 spec:
-  project: timai-app-test
   source:
     repoURL: "https://ai-gitlab.apps.cluster.sa1-ac-okd.telecomitalia.local/tim-source/tim-argocd-gcp-test.git"
     targetRevision: "main"
