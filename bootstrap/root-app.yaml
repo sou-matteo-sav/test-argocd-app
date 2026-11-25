@@ -1,0 +1,20 @@
+# App-of-Apps root: vive su Argo CD del cluster .local (namespace "argocd", progetto "timai-app-test")
+# e crea localmente su .local le 8 Application figlie in apps/ che deployano remotamente su hcpt4321765.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: timai-app-root
+  namespace: argocd
+spec:
+  project: timai-app-test
+  source:
+    repoURL: "https://ai-gitlab.apps.cluster.sa1-ac-okd.telecomitalia.local/tim-source/tim-argocd-gcp-test.git"
+    targetRevision: "main"
+    path: apps
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+  

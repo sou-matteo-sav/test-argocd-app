@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: timai-app-pods
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: timai-app-test
+  source:
+    repoURL: "https://ai-gitlab.apps.cluster.sa1-ac-okd.telecomitalia.local/tim-source/tim-argocd-gcp-test.git"
+    targetRevision: "main"
+    path: components/pods
+  destination:
+    server: https://k8s-api.34.7.45.140.nip.io:443
+    namespace: timai-app-gitea
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
