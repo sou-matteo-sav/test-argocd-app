@@ -12,7 +12,7 @@ spec:
     targetRevision: "main"
     path: components/pods
   destination:
-    server: https://k8s-api.34.7.45.140.nip.io:443
+    server: https://api-hcpt4321765.hcp01-rn.hcps.cloudkube.tim.it:443
     namespace: timai-app-gitea
   syncPolicy:
     syncOptions:
