@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: timai-app-pods
-  namespace: default
+  namespace: openshift-gitops
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
@@ -17,3 +17,4 @@ spec:
   syncPolicy:
     syncOptions:
       - ServerSideApply=true
+

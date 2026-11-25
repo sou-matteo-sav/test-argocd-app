@@ -1,10 +1,10 @@
-# App-of-Apps root: vive su Argo CD del cluster .local (namespace "argocd", progetto "timai-app-test")
-# e crea localmente su .local le 8 Application figlie in apps/ che deployano remotamente su hcpt4321765.
+# App-of-Apps root: vive su Argo CD in namespace "openshift-gitops"
+# e crea localmente le Application figlie in apps/ che deployano remotamente su hcpt4321765.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: timai-app-root
-  namespace: default
+  namespace: openshift-gitops
 spec:
   project: default
   source:
@@ -13,8 +13,8 @@ spec:
     path: apps
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: openshift-gitops
   syncPolicy:
     syncOptions:
       - ServerSideApply=true
-  
+
